@@ -26,6 +26,7 @@ def main():
         row = 0
         bsb = ""
         company_ary = []
+        exit_char = 'e'
         for cell in tree.xpath('//*[@id="content-matching"]/div/div/table/tbody/tr/td'):
             if col == 0:
                 bsb = cell.getchildren()[0].text_content().strip()
@@ -37,8 +38,8 @@ def main():
                 company_ary = []
             col = (col + 1) % 4
             row += 1
-        exit_input = input("Enter 'e' to exit, or any other key to continue: ")
-        should_continue = exit_input == 'q'
+        exit_input = input("Enter '" + exit_char + "' to exit, or any other key to continue: ")
+        should_continue = exit_input != exit_char
 
 
 if __name__ == "__main__":
